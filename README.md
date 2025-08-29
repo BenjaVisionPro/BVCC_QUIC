@@ -21,7 +21,7 @@ or you can do each bit individually to get the same result
 
 ```bash
 # 1) Build dependencies (MsQuic v2.5.3 by default)
-tooling/build_deps.sh
+tooling/build_all.sh
 
 # 2) Build libbvcquic against the staged deps
 tooling/build_lib.sh  [--diag] [--keylog]
