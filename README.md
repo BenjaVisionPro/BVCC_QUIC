@@ -1,3 +1,10 @@
+# QUIC sidecar for BenjaVision Catalyst Connect (libbvcquic)
+
+This project provides a common surface (see bvc_quic.h) for using quic sockets in event driven applications. Targets include FFI in GemStone / Pharo and Unreal Engine c++. It is tested to interoperate with the SwiftNIO QUIC implementation as a minimum.
+
+It's role is to insulate users from known quirks in various QUIC implementations with a goal of providing common instrumentation and benchmarking.
+
+Maybe, in the future, QUIC sockets will become first class citizens across platforms and we can scrap this project, but until that day, this should do the trick.
 
 # Building libbvcquic
 
@@ -6,11 +13,18 @@ This repository separates **dependencies** (MsQuic) from **our wrapper** so buil
 ## Quick start
 
 ```bash
+# Build everything and stage the distribution.
+tooling/build_deps.sh [--diag] [--keylog]
+```
+
+or you can do each bit individually to get the same result
+
+```bash
 # 1) Build dependencies (MsQuic v2.5.3 by default)
 tooling/build_deps.sh
 
 # 2) Build libbvcquic against the staged deps
-tooling/build_lib.sh
+tooling/build_lib.sh  [--diag] [--keylog]
 
 # 3) Produce a platform-specific distribution layout
 tooling/build_dist.sh
