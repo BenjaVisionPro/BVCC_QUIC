@@ -14,14 +14,14 @@ This repository separates **dependencies** (MsQuic) from **our wrapper** so buil
 
 ```bash
 # Build everything and stage the distribution.
-tooling/build_deps.sh [--diag] [--keylog]
+tooling/build_all.sh [--diag] [--keylog]
 ```
 
 or you can do each bit individually to get the same result
 
 ```bash
 # 1) Build dependencies (MsQuic v2.5.3 by default)
-tooling/build_all.sh
+tooling/build_deps.sh
 
 # 2) Build libbvcquic against the staged deps
 tooling/build_lib.sh  [--diag] [--keylog]
